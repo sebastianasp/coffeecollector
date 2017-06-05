@@ -24,15 +24,23 @@ class CoffeeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
 
     @IBAction func cameraTapped(_ sender: Any) {
+        
     }
     
     @IBAction func photosTapped(_ sender: Any) {
         
-        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.sourceType = .photoLibrary
         
         present(imagePicker, animated: true, completion: nil)
     }
 
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        coffeeImageView.image = image
+        
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func addTapped(_ sender: Any) {
     }
