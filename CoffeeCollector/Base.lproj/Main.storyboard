@@ -87,12 +87,15 @@
                                     <action selector="cameraTapped:" destination="GW8-aN-oZC" id="rtg-nP-UAR"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Photos" id="HXQ-K4-QYP"/>
+                            <barButtonItem title="Photos" id="HXQ-K4-QYP">
+                                <connections>
+                                    <action selector="photosTapped:" destination="GW8-aN-oZC" id="mFg-p0-rvX"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="coffeeImageView" destination="1In-AH-gF6" id="KS8-Zc-osx"/>
-                        <outlet property="photosTapped" destination="HXQ-K4-QYP" id="bmc-vk-4T5"/>
                         <outlet property="titleTextField" destination="rMD-ew-E0A" id="UwP-l0-LFD"/>
                     </connections>
                 </viewController>

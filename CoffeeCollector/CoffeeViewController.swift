@@ -8,22 +8,31 @@
 
 import UIKit
 
-class CoffeeViewController: UIViewController {
+class CoffeeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var coffeeImageView: UIImageView!
-    
     @IBOutlet weak var titleTextField: UITextField!
+    
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        imagePicker.delegate = self
     }
 
     @IBAction func cameraTapped(_ sender: Any) {
     }
+    
+    @IBAction func photosTapped(_ sender: Any) {
+        
+        imagePicker.sourceType = .savedPhotosAlbum
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
 
-    @IBOutlet weak var photosTapped: UIBarButtonItem!
 
     @IBAction func addTapped(_ sender: Any) {
     }
