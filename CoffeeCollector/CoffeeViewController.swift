@@ -43,5 +43,13 @@ class CoffeeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
 
     @IBAction func addTapped(_ sender: Any) {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let coffee = Coffee(context: context)
+        coffee.title = titleTextField.text
+        coffee.image = UIImagePNGRepresentation(coffeeImageView.image!) as NSData?
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
+    
 }
