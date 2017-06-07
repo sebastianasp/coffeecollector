@@ -82,11 +82,21 @@
                                     <action selector="addTapped:" destination="GW8-aN-oZC" eventType="touchUpInside" id="wL9-af-0vj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDp-82-TmI">
+                                <rect key="frame" x="165" y="403" width="45" height="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="GW8-aN-oZC" eventType="touchUpInside" id="BGq-jp-9it"/>
+                                    <action selector="deleteTapped:" destination="GW8-aN-oZC" eventType="touchUpInside" id="pwB-0N-eLn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rMD-ew-E0A" firstAttribute="top" secondItem="1In-AH-gF6" secondAttribute="bottom" constant="26" id="5Fq-zz-X9Z"/>
+                            <constraint firstItem="kDp-82-TmI" firstAttribute="top" secondItem="Uqh-IX-tdO" secondAttribute="bottom" constant="13" id="7RN-sj-HCZ"/>
                             <constraint firstItem="rMD-ew-E0A" firstAttribute="centerX" secondItem="GAK-bK-HFF" secondAttribute="centerX" id="B5w-rt-arR"/>
+                            <constraint firstItem="kDp-82-TmI" firstAttribute="centerX" secondItem="GAK-bK-HFF" secondAttribute="centerX" id="F8A-al-Cmi"/>
                             <constraint firstItem="rMD-ew-E0A" firstAttribute="centerX" secondItem="GAK-bK-HFF" secondAttribute="centerX" id="MZu-j9-V7e"/>
                             <constraint firstItem="Uqh-IX-tdO" firstAttribute="centerX" secondItem="GAK-bK-HFF" secondAttribute="centerX" id="WZJ-f0-V1W"/>
                             <constraint firstItem="1In-AH-gF6" firstAttribute="centerX" secondItem="GAK-bK-HFF" secondAttribute="centerX" id="Xms-dW-yyL"/>
@@ -112,6 +122,7 @@
                     <connections>
                         <outlet property="addUpdateButton" destination="Uqh-IX-tdO" id="Fxr-eS-Shg"/>
                         <outlet property="coffeeImageView" destination="1In-AH-gF6" id="KS8-Zc-osx"/>
+                        <outlet property="deleteButton" destination="kDp-82-TmI" id="jfD-pq-tCP"/>
                         <outlet property="titleTextField" destination="rMD-ew-E0A" id="UwP-l0-LFD"/>
                     </connections>
                 </viewController>

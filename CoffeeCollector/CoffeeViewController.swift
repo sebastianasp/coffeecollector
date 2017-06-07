@@ -13,6 +13,7 @@ class CoffeeViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var coffeeImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var addUpdateButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var imagePicker = UIImagePickerController()
     var coffee : Coffee? = nil
@@ -24,15 +25,21 @@ class CoffeeViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         imagePicker.delegate = self
         
-        if coffee != nil {
+        if  coffee != nil {
             coffeeImageView.image = UIImage(data: coffee!.image as! Data)
             titleTextField.text = coffee?.title
             addUpdateButton.setTitle("Update", for: .normal)
+        } else {
+            deleteButton.isHidden = true
         }
         
     }
 
     @IBAction func cameraTapped(_ sender: Any) {
+        
+        imagePicker.sourceType = .camera
+        
+        present(imagePicker, animated: true, completion: nil)
         
     }
     
@@ -53,14 +60,34 @@ class CoffeeViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     @IBAction func addTapped(_ sender: Any) {
         
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let coffee = Coffee(context: context)
-        coffee.title = titleTextField.text
-        coffee.image = UIImagePNGRepresentation(coffeeImageView.image!) as NSData?
+        if coffee != nil {
+            coffee!.title = titleTextField.text
+            coffee!.image = UIImagePNGRepresentation(coffeeImageView.image!) as NSData?
+            
+        } else {
+            
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let coffee = Coffee(context: context)
+            coffee.title = titleTextField.text
+            coffee.image = UIImagePNGRepresentation(coffeeImageView.image!) as NSData?
+            
+        }
+        
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         navigationController!.popViewController(animated: true)
+    }
+    @IBAction func deleteTapped(_ sender: Any) {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        context.delete(coffee!)
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        navigationController!.popViewController(animated: true)
+        
     }
     
 }
