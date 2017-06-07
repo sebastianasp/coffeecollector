@@ -50,6 +50,8 @@ class CoffeeViewController: UIViewController, UIImagePickerControllerDelegate, U
         coffee.image = UIImagePNGRepresentation(coffeeImageView.image!) as NSData?
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        navigationController!.popViewController(animated: true)
     }
     
 }

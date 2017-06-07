@@ -45,6 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = UITableViewCell()
         let coffee = coffees[indexPath.row]
         cell.textLabel?.text = coffee.title
+        cell.imageView?.image = UIImage(data: coffee.image as! Data)
         return cell
     }
     
