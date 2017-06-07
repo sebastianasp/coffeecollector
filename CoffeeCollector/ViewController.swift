@@ -49,5 +49,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let coffee = coffees[indexPath.row]
+performSegue(withIdentifier: "coffeeSegue", sender: coffee)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! CoffeeViewController
+        nextVC.coffee = sender as? Coffee
+    }
+    
 }
 

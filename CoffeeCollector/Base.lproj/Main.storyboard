@@ -38,7 +38,7 @@
                     <navigationItem key="navigationItem" id="KqX-9W-QUF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YKf-IR-yvw">
                             <connections>
-                                <segue destination="GW8-aN-oZC" kind="show" id="s3I-Nb-C68"/>
+                                <segue destination="GW8-aN-oZC" kind="show" identifier="coffeeSegue" id="s3I-Nb-C68"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -110,6 +110,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addUpdateButton" destination="Uqh-IX-tdO" id="Fxr-eS-Shg"/>
                         <outlet property="coffeeImageView" destination="1In-AH-gF6" id="KS8-Zc-osx"/>
                         <outlet property="titleTextField" destination="rMD-ew-E0A" id="UwP-l0-LFD"/>
                     </connections>

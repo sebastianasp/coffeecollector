@@ -12,8 +12,10 @@ class CoffeeViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     @IBOutlet weak var coffeeImageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var addUpdateButton: UIButton!
     
     var imagePicker = UIImagePickerController()
+    var coffee : Coffee? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,13 @@ class CoffeeViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Do any additional setup after loading the view.
         
         imagePicker.delegate = self
+        
+        if coffee != nil {
+            coffeeImageView.image = UIImage(data: coffee!.image as! Data)
+            titleTextField.text = coffee?.title
+            addUpdateButton.setTitle("Update", for: .normal)
+        }
+        
     }
 
     @IBAction func cameraTapped(_ sender: Any) {
